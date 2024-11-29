@@ -627,15 +627,6 @@ script.onload = function() {
             updateYearIndicators(years[0]);
         }, 100); // Small delay to ensure data is loaded
 
-        // Add separator line
-        mainSvg.append('line')
-            .attr('x1', -margin.left)
-            .attr('x2', width + margin.right)
-            .attr('y1', chartHeight - margin.top - margin.bottom + 10)
-            .attr('y2', chartHeight - margin.top - margin.bottom + 10)
-            .style('stroke', '#F6F0ED')
-            .style('stroke-width', '1px');
-
         // After creating chartsContainer, add the sticky header container
         chartsContainer.insert('div', ':first-child')
             .attr('class', 'sticky-header')
