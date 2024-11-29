@@ -1,0 +1,331 @@
+Year,Type of Energy Source,Renewable,Amount Generated (thousand megawatthours)
+2001,Natural Gas,Non-Renewable,639129
+2002,Natural Gas,Non-Renewable,691006
+2003,Natural Gas,Non-Renewable,649908
+2004,Natural Gas,Non-Renewable,710100
+2005,Natural Gas,Non-Renewable,760960
+2006,Natural Gas,Non-Renewable,816441
+2007,Natural Gas,Non-Renewable,896590
+2008,Natural Gas,Non-Renewable,882981
+2009,Natural Gas,Non-Renewable,920979
+2010,Natural Gas,Non-Renewable,987697
+2011,Natural Gas,Non-Renewable,1013689
+2012,Natural Gas,Non-Renewable,1225894
+2013,Natural Gas,Non-Renewable,1124836
+2014,Natural Gas,Non-Renewable,1126635
+2015,Natural Gas,Non-Renewable,1334668
+2016,Natural Gas,Non-Renewable,1379271
+2017,Natural Gas,Non-Renewable,1297703
+2018,Natural Gas,Non-Renewable,1471843
+2019,Natural Gas,Non-Renewable,1588533
+2020,Natural Gas,Non-Renewable,1626790
+2021,Natural Gas,Non-Renewable,1579190
+2022,Natural Gas,Non-Renewable,1687065
+2001,Nuclear,Non-Renewable,768826
+2002,Nuclear,Non-Renewable,780064
+2003,Nuclear,Non-Renewable,763733
+2004,Nuclear,Non-Renewable,788528
+2005,Nuclear,Non-Renewable,781986
+2006,Nuclear,Non-Renewable,787219
+2007,Nuclear,Non-Renewable,806425
+2008,Nuclear,Non-Renewable,806208
+2009,Nuclear,Non-Renewable,798855
+2010,Nuclear,Non-Renewable,806968
+2011,Nuclear,Non-Renewable,790204
+2012,Nuclear,Non-Renewable,769331
+2013,Nuclear,Non-Renewable,789016
+2014,Nuclear,Non-Renewable,797166
+2015,Nuclear,Non-Renewable,797178
+2016,Nuclear,Non-Renewable,805694
+2017,Nuclear,Non-Renewable,804950
+2018,Nuclear,Non-Renewable,807084
+2019,Nuclear,Non-Renewable,809409
+2020,Nuclear,Non-Renewable,789879
+2021,Nuclear,Non-Renewable,779645
+2022,Nuclear,Non-Renewable,771537
+2001,Petroleum Liquid,Non-Renewable,114647
+2002,Petroleum Liquid,Non-Renewable,78701
+2003,Petroleum Liquid,Non-Renewable,102734
+2004,Petroleum Liquid,Non-Renewable,100391
+2005,Petroleum Liquid,Non-Renewable,100391
+2006,Petroleum Liquid,Non-Renewable,100391
+2007,Petroleum Liquid,Non-Renewable,100391
+2008,Petroleum Liquid,Non-Renewable,100391
+2009,Petroleum Liquid,Non-Renewable,100391
+2010,Petroleum Liquid,Non-Renewable,100391
+2011,Petroleum Liquid,Non-Renewable,100391
+2012,Petroleum Liquid,Non-Renewable,100391
+2013,Petroleum Liquid,Non-Renewable,100391
+2014,Petroleum Liquid,Non-Renewable,100391
+2015,Petroleum Liquid,Non-Renewable,100391
+2016,Petroleum Liquid,Non-Renewable,100391
+2017,Petroleum Liquid,Non-Renewable,100391
+2018,Petroleum Liquid,Non-Renewable,100391
+2019,Petroleum Liquid,Non-Renewable,100391
+2020,Petroleum Liquid,Non-Renewable,100391
+2021,Petroleum Liquid,Non-Renewable,100391
+2022,Petroleum Liquid,Non-Renewable,100391
+2001,Petroleum Coke,Non-Renewable,10233
+2002,Petroleum Coke,Non-Renewable,15867
+2003,Petroleum Coke,Non-Renewable,16672
+2004,Petroleum Coke,Non-Renewable,20754
+2005,Petroleum Coke,Non-Renewable,22385
+2006,Petroleum Coke,Non-Renewable,19706
+2007,Petroleum Coke,Non-Renewable,16234
+2008,Petroleum Coke,Non-Renewable,14325
+2009,Petroleum Coke,Non-Renewable,12964
+2010,Petroleum Coke,Non-Renewable,13724
+2011,Petroleum Coke,Non-Renewable,14096
+2012,Petroleum Coke,Non-Renewable,9787
+2013,Petroleum Coke,Non-Renewable,13344
+2014,Petroleum Coke,Non-Renewable,11955
+2015,Petroleum Coke,Non-Renewable,10877
+2016,Petroleum Coke,Non-Renewable,11197
+2017,Petroleum Coke,Non-Renewable,8976
+2018,Petroleum Coke,Non-Renewable,8981
+2019,Petroleum Coke,Non-Renewable,6819
+2020,Petroleum Coke,Non-Renewable,7679
+2021,Petroleum Coke,Non-Renewable,7511
+2022,Petroleum Coke,Non-Renewable,7126
+2001,Conventional Hydroelectric,Renewable,216961
+2002,Conventional Hydroelectric,Renewable,264329
+2003,Conventional Hydroelectric,Renewable,275806
+2004,Conventional Hydroelectric,Renewable,268417
+2005,Conventional Hydroelectric,Renewable,270321
+2006,Conventional Hydroelectric,Renewable,289246
+2007,Conventional Hydroelectric,Renewable,247510
+2008,Conventional Hydroelectric,Renewable,254831
+2009,Conventional Hydroelectric,Renewable,273445
+2010,Conventional Hydroelectric,Renewable,260203
+2011,Conventional Hydroelectric,Renewable,319355
+2012,Conventional Hydroelectric,Renewable,276240
+2013,Conventional Hydroelectric,Renewable,268565
+2014,Conventional Hydroelectric,Renewable,259367
+2015,Conventional Hydroelectric,Renewable,249080
+2016,Conventional Hydroelectric,Renewable,267812
+2017,Conventional Hydroelectric,Renewable,300333
+2018,Conventional Hydroelectric,Renewable,292524
+2019,Conventional Hydroelectric,Renewable,287874
+2020,Conventional Hydroelectric,Renewable,285274
+2021,Conventional Hydroelectric,Renewable,251585
+2022,Conventional Hydroelectric,Renewable,254789
+2001,Wind,Renewable,6737
+2002,Wind,Renewable,10354
+2003,Wind,Renewable,11187
+2004,Wind,Renewable,14144
+2005,Wind,Renewable,17811
+2006,Wind,Renewable,26589
+2007,Wind,Renewable,34450
+2008,Wind,Renewable,55363
+2009,Wind,Renewable,73886
+2010,Wind,Renewable,94652
+2011,Wind,Renewable,120177
+2012,Wind,Renewable,140822
+2013,Wind,Renewable,167840
+2014,Wind,Renewable,181655
+2015,Wind,Renewable,190719
+2016,Wind,Renewable,226993
+2017,Wind,Renewable,254303
+2018,Wind,Renewable,272667
+2019,Wind,Renewable,295882
+2020,Wind,Renewable,337938
+2021,Wind,Renewable,378197
+2022,Wind,Renewable,434297
+2001,Geothermal,Renewable,13741
+2002,Geothermal,Renewable,14491
+2003,Geothermal,Renewable,14424
+2004,Geothermal,Renewable,14811
+2005,Geothermal,Renewable,14692
+2006,Geothermal,Renewable,14568
+2007,Geothermal,Renewable,14637
+2008,Geothermal,Renewable,14840
+2009,Geothermal,Renewable,15009
+2010,Geothermal,Renewable,15219
+2011,Geothermal,Renewable,15316
+2012,Geothermal,Renewable,15562
+2013,Geothermal,Renewable,15775
+2014,Geothermal,Renewable,15877
+2015,Geothermal,Renewable,15918
+2016,Geothermal,Renewable,15826
+2017,Geothermal,Renewable,15927
+2018,Geothermal,Renewable,15967
+2019,Geothermal,Renewable,15473
+2020,Geothermal,Renewable,15890
+2021,Geothermal,Renewable,15975
+2022,Geothermal,Renewable,16087
+2001,Biomass,Renewable,49748
+2002,Biomass,Renewable,53709
+2003,Biomass,Renewable,53341
+2004,Biomass,Renewable,53537
+2005,Biomass,Renewable,54277
+2006,Biomass,Renewable,54861
+2007,Biomass,Renewable,55539
+2008,Biomass,Renewable,55034
+2009,Biomass,Renewable,54493
+2010,Biomass,Renewable,56089
+2011,Biomass,Renewable,56671
+2012,Biomass,Renewable,57622
+2013,Biomass,Renewable,60858
+2014,Biomass,Renewable,63989
+2015,Biomass,Renewable,63632
+2016,Biomass,Renewable,62760
+2017,Biomass,Renewable,62733
+2018,Biomass,Renewable,61832
+2019,Biomass,Renewable,57507
+2020,Biomass,Renewable,54712
+2021,Biomass,Renewable,54252
+2022,Biomass,Renewable,51849
+2001,Solar,Renewable,543
+2002,Solar,Renewable,555
+2003,Solar,Renewable,534
+2004,Solar,Renewable,575
+2005,Solar,Renewable,550
+2006,Solar,Renewable,508
+2007,Solar,Renewable,612
+2008,Solar,Renewable,864
+2009,Solar,Renewable,891
+2010,Solar,Renewable,1212
+2011,Solar,Renewable,1818
+2012,Solar,Renewable,4327
+2013,Solar,Renewable,9036
+2014,Solar,Renewable,17691
+2015,Solar,Renewable,24893
+2016,Solar,Renewable,36054
+2017,Solar,Renewable,53287
+2018,Solar,Renewable,63825
+2019,Solar,Renewable,71937
+2020,Solar,Renewable,89199
+2021,Solar,Renewable,115258
+2022,Solar,Renewable,143792
+2001,Coal,Non-Renewable,1903956
+2002,Coal,Non-Renewable,1933130
+2003,Coal,Non-Renewable,1973737
+2004,Coal,Non-Renewable,1978301
+2005,Coal,Non-Renewable,2012873
+2006,Coal,Non-Renewable,1990511
+2007,Coal,Non-Renewable,2016456
+2008,Coal,Non-Renewable,1985801
+2009,Coal,Non-Renewable,1755904
+2010,Coal,Non-Renewable,1847290
+2011,Coal,Non-Renewable,1733430
+2012,Coal,Non-Renewable,1514043
+2013,Coal,Non-Renewable,1581115
+2014,Coal,Non-Renewable,1581710
+2015,Coal,Non-Renewable,1352398
+2016,Coal,Non-Renewable,1239149
+2017,Coal,Non-Renewable,1205835
+2018,Coal,Non-Renewable,1149487
+2019,Coal,Non-Renewable,964957
+2020,Coal,Non-Renewable,773393
+2021,Coal,Non-Renewable,897999
+2022,Coal,Non-Renewable,831512
+2001,Other Gases,Non-Renewable,9039
+2002,Other Gases,Non-Renewable,11463
+2003,Other Gases,Non-Renewable,15600
+2004,Other Gases,Non-Renewable,15252
+2005,Other Gases,Non-Renewable,13464
+2006,Other Gases,Non-Renewable,14177
+2007,Other Gases,Non-Renewable,13453
+2008,Other Gases,Non-Renewable,11707
+2009,Other Gases,Non-Renewable,10632
+2010,Other Gases,Non-Renewable,11313
+2011,Other Gases,Non-Renewable,11566
+2012,Other Gases,Non-Renewable,11898
+2013,Other Gases,Non-Renewable,12853
+2014,Other Gases,Non-Renewable,12022
+2015,Other Gases,Non-Renewable,13117
+2016,Other Gases,Non-Renewable,12807
+2017,Other Gases,Non-Renewable,12469
+2018,Other Gases,Non-Renewable,13463
+2019,Other Gases,Non-Renewable,12591
+2020,Other Gases,Non-Renewable,11818
+2021,Other Gases,Non-Renewable,11397
+2022,Other Gases,Non-Renewable,11722
+2001,Hydro-Electric Pumped Storage,Renewable,-8823
+2002,Hydro-Electric Pumped Storage,Renewable,-8743
+2003,Hydro-Electric Pumped Storage,Renewable,-8535
+2004,Hydro-Electric Pumped Storage,Renewable,-8488
+2005,Hydro-Electric Pumped Storage,Renewable,-6558
+2006,Hydro-Electric Pumped Storage,Renewable,-6558
+2007,Hydro-Electric Pumped Storage,Renewable,-6896
+2008,Hydro-Electric Pumped Storage,Renewable,-6288
+2009,Hydro-Electric Pumped Storage,Renewable,-4627
+2010,Hydro-Electric Pumped Storage,Renewable,-5501
+2011,Hydro-Electric Pumped Storage,Renewable,-6421
+2012,Hydro-Electric Pumped Storage,Renewable,-4950
+2013,Hydro-Electric Pumped Storage,Renewable,-4681
+2014,Hydro-Electric Pumped Storage,Renewable,-6174
+2015,Hydro-Electric Pumped Storage,Renewable,-5091
+2016,Hydro-Electric Pumped Storage,Renewable,-6686
+2017,Hydro-Electric Pumped Storage,Renewable,-6495
+2018,Hydro-Electric Pumped Storage,Renewable,-5905
+2019,Hydro-Electric Pumped Storage,Renewable,-5261
+2020,Hydro-Electric Pumped Storage,Renewable,-5321
+2021,Hydro-Electric Pumped Storage,Renewable,-5112
+2022,Hydro-Electric Pumped Storage,Renewable,-6028
+2001,Other Renewables,Renewable,11906
+2002,Other Renewables,Renewable,13527
+2003,Other Renewables,Renewable,14045
+2004,Other Renewables,Renewable,14232
+2005,Other Renewables,Renewable,12821
+2006,Other Renewables,Renewable,12974
+2007,Other Renewables,Renewable,12231
+2008,Other Renewables,Renewable,11804
+2009,Other Renewables,Renewable,11928
+2010,Other Renewables,Renewable,12855
+2011,Other Renewables,Renewable,14154
+2012,Other Renewables,Renewable,13787
+2013,Other Renewables,Renewable,13588
+2014,Other Renewables,Renewable,13393
+2015,Other Renewables,Renewable,13955
+2016,Other Renewables,Renewable,13689
+2017,Other Renewables,Renewable,13008
+2018,Other Renewables,Renewable,12973
+2019,Other Renewables,Renewable,13331
+2020,Other Renewables,Renewable,12855
+2021,Other Renewables,Renewable,12140
+2022,Other Renewables,Renewable,11114
+2001,Total Renewable,Total Renewable,284076
+2002,Total Renewable,Total Renewable,337868
+2003,Total Renewable,Total Renewable,349615
+2004,Total Renewable,Total Renewable,343084
+2005,Total Renewable,Total Renewable,346103
+2006,Total Renewable,Total Renewable,365599
+2007,Total Renewable,Total Renewable,323633
+2008,Total Renewable,Total Renewable,331085
+2009,Total Renewable,Total Renewable,351139
+2010,Total Renewable,Total Renewable,340077
+2011,Total Renewable,Total Renewable,400893
+2012,Total Renewable,Total Renewable,362588
+2013,Total Renewable,Total Renewable,363141
+2014,Total Renewable,Total Renewable,364143
+2015,Total Renewable,Total Renewable,362387
+2016,Total Renewable,Total Renewable,389455
+2017,Total Renewable,Total Renewable,438793
+2018,Total Renewable,Total Renewable,441216
+2019,Total Renewable,Total Renewable,440861
+2020,Total Renewable,Total Renewable,452609
+2021,Total Renewable,Total Renewable,444098
+2022,Total Renewable,Total Renewable,471603
+2001,Total Non-Renewable,Total Non-Renewable,3320950
+2002,Total Non-Renewable,Total Non-Renewable,3415663
+2003,Total Non-Renewable,Total Non-Renewable,3402978
+2004,Total Non-Renewable,Total Non-Renewable,3492181
+2005,Total Non-Renewable,Total Non-Renewable,3569283
+2006,Total Non-Renewable,Total Non-Renewable,3608348
+2007,Total Non-Renewable,Total Non-Renewable,3732924
+2008,Total Non-Renewable,Total Non-Renewable,3686697
+2009,Total Non-Renewable,Total Non-Renewable,3486370
+2010,Total Non-Renewable,Total Non-Renewable,3653268
+2011,Total Non-Renewable,Total Non-Renewable,3548889
+2012,Total Non-Renewable,Total Non-Renewable,3521166
+2013,Total Non-Renewable,Total Non-Renewable,3507820
+2014,Total Non-Renewable,Total Non-Renewable,3517533
+2015,Total Non-Renewable,Total Non-Renewable,3497361
+2016,Total Non-Renewable,Total Non-Renewable,3436921
+2017,Total Non-Renewable,Total Non-Renewable,3320957
+2018,Total Non-Renewable,Total Non-Renewable,3441877
+2019,Total Non-Renewable,Total Non-Renewable,3375490
+2020,Total Non-Renewable,Total Non-Renewable,3201880
+2021,Total Non-Renewable,Total Non-Renewable,3268231
+2022,Total Non-Renewable,Total Non-Renewable,3301836

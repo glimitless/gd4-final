@@ -1,0 +1,314 @@
+html{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    box-sizing: content-box;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+ 
+body{
+    height: 100vh;
+    padding: 1rem;
+    overflow: hidden;
+    margin: 0;
+    background-color: #2A2B2E;
+    color: rgba(246, 240, 237, 0.8);
+    
+}
+
+.content-container{
+    height: calc(100% - 2rem);
+    width: calc(100% - 2rem);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.vis_net-generation-by-sector{
+    grid-column: 1 / 9;
+    grid-row: 2 / 7;
+    overflow: hidden;
+    position: relative;
+}
+.title{
+    grid-column: 1 / 9;
+    grid-row: 1 / 2;
+}
+.sources{
+    grid-column: 9 / 13;
+    grid-row: 1 / 3;
+    padding: 1rem;
+    text-align: center;
+    
+}
+.sources h2 {
+    margin-bottom: 1rem;
+    color: rgba(246, 240, 237, 0.8);
+    font-size: 14px;
+    opacity: 1;
+}
+.source-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    line-height: 1rem;
+}
+.source-links a {
+    color: rgba(246, 240, 237, 0.8);
+    text-decoration: none;
+    font-size: 12px;
+    
+    transition: color 0.2s ease;
+    padding: 0 1rem;
+    opacity: 1;
+}
+.source-links a:hover {
+    color: rgba(246, 240, 237, 1);
+    text-decoration: underline;
+}
+.vis_counter{
+    grid-column: 1 / 2;
+    grid-row: 2 / 7;
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 40px;
+}
+.vis_net-generation-total{
+    grid-column: 9 / 13;
+    grid-row: 3 / 5;
+}
+.vis_carbon-emissions{
+    grid-column: 9 / 13;
+    grid-row: 5 / 7;
+}
+
+.sticky-header {
+    border-bottom: 1px solid #4A4B4E;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.fixed-size-vis {
+    width: 100%;
+    height: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter-content {
+    width: 240px;
+    transition: all 0.3s ease;
+    color: rgba(246, 240, 237, 0.8);
+}
+
+.counter-content:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.year-display {
+    position: absolute;
+    left: 35px;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(246, 240, 237, 0.8);
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: top 0.3s ease;
+}
+
+.total-gen, .carbon {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.grid {
+    stroke: #4A4B4E !important;
+}
+
+.domain,
+.tick line {
+    stroke: rgba(246, 240, 237, 0.8) !important;
+}
+
+.tick text {
+    fill: rgba(246, 240, 237, 0.8) !important;
+    stroke: none !important;
+}
+
+.year-indicator {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.year-marker {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.tooltip {
+    font-family: Helvetica;
+    line-height: 1.4;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Add hover effect to bars */
+rect:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+/* Add these styles to prevent default scrolling */
+html, body {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+
+/* Update the content container styles */
+.content-container {
+    height: 100vh;
+    width: 100vw;
+    padding: 1rem;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+/* Update the vis_net-generation-by-sector styles */
+.vis_net-generation-by-sector {
+    position: relative;
+    overflow: visible;
+}
+
+/* Add styles for the scroll container */
+.scroll-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Base typography */
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    box-sizing: content-box;
+}
+
+/* Main title */
+.title h1 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: rgba(246, 240, 237, 0.8);
+    letter-spacing: -0.02em;
+}
+
+/* Sources section */
+.sources h2 {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: rgba(246, 240, 237, 0.8);
+    opacity: 1;
+}
+
+.source-links a {
+    color: rgba(246, 240, 237, 0.8);
+    text-decoration: none;
+    font-size: 0.7rem;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+    padding: 0 1rem;
+    opacity: 1;
+}
+
+/* Counter content */
+.counter-content {
+    width: 240px;
+    transition: all 0.3s ease;
+}
+
+.counter-content div:first-child {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+
+.counter-content div:not(:first-child) {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    line-height: 1.4;
+    margin-bottom: 0.25rem;
+}
+
+/* Chart titles and labels */
+.vis_net-generation-total text,
+.vis_carbon-emissions text {
+    font-family: Arial, sans-serif;
+}
+
+/* Chart titles */
+.vis_net-generation-total text[font-weight="bold"],
+.vis_carbon-emissions text[font-weight="bold"] {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+/* Axis labels */
+.vis_net-generation-total .tick text,
+.vis_carbon-emissions .tick text {
+    font-size: 0.7rem;
+    opacity: 0.9;
+}
+
+/* Bar chart labels */
+.source-label {
+    font-size: 0.75rem !important;
+    opacity: 0.9;
+}
+
+.value-label {
+    font-size: 0.7rem !important;
+    opacity: 0.8;
+}
+
+/* Year label */
+.year-display {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+/* Sticky header */
+.sticky-header div {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    opacity: 1;
+}
+
+.sticky-header .tick-label {
+    font-size: 0.7rem;
+    opacity: 0.8;
+}
