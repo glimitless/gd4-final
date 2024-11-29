@@ -206,7 +206,7 @@ script.onload = function() {
                 .style('font-size', '14px')
                 .style('font-weight', 'bold')
                 .style('fill', 'rgba(246, 240, 237, 0.8)')
-                .text('Total vs Renewable Energy Generation');
+                .text('US Energy Generated From 2001 to 2022');
 
             totalGenSvg.append('text')
                 .attr('transform', 'rotate(-90)')
@@ -215,7 +215,7 @@ script.onload = function() {
                 .attr('text-anchor', 'middle')
                 .style('font-size', '12px')
                 .style('fill', 'rgba(246, 240, 237, 0.8)')
-                .text('Amount Generated (thousand MWh)');
+                .text('Energy Generated (thousand MWh)');
         });
 
         // Carbon Emissions Chart
@@ -329,7 +329,7 @@ script.onload = function() {
                 .style('font-size', '14px')
                 .style('font-weight', 'bold')
                 .style('fill', 'rgba(246, 240, 237, 0.8)')
-                .text('US Carbon Emissions Over Time');
+                .text('US Carbon Emissions From 2001 to 2022');
 
             // Add y-axis label
             carbonSvg.append('text')
@@ -369,7 +369,7 @@ script.onload = function() {
             // Find the corresponding data row to check if it's renewable
             const sourceData = data.find(d => d['Type of Energy Source'] === source);
             if (sourceData) {
-                return sourceData.Renewable === 'Renewable' ? '#90EE90' : '#FFB6C1';  // Light green : Light red
+                return sourceData.Renewable === 'Renewable' ? '#5B8A72' : '#B47676';  // Forest green : Muted red
             }
             return '#2171b5';  // Default color if type cannot be determined
         };
