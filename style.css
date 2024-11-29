@@ -23,6 +23,7 @@ body{
 .content-container{
     height: calc(100% - 2rem);
     width: calc(100% - 2rem);
+    max-width: 1440px;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(6, 1fr);
@@ -313,4 +314,91 @@ html {
 .sticky-header .tick-label {
     font-size: 0.7rem;
     opacity: 0.8;
+}
+
+.info-panel {
+    position: absolute;
+    background: #363738;
+    border: 1px solid #4A4B4E;
+    border-radius: 8px;
+    padding: 0;
+    width: 300px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+    color: rgba(246, 240, 237, 0.9);
+}
+
+.info-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: #2A2B2E;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid #4A4B4E;
+}
+
+.info-panel-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: rgba(246, 240, 237, 0.8);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0 4px;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: rgba(246, 240, 237, 1);
+}
+
+.info-panel-content {
+    padding: 16px;
+}
+
+.info-panel-content p {
+    margin: 0 0 12px 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.info-panel-content .impact {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #4A4B4E;
+    font-weight: 500;
+}
+
+/* Make bars clickable */
+rect {
+    cursor: pointer;
+}
+
+/* Update the year scroll indicator styles */
+.year-scroll-indicator {
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    fill: rgba(246, 240, 237, 0.8);
+}
+
+/* Update the existing year-display style */
+.year-display {
+    display: none; /* Hide the old year display if it exists */
+}
+
+/* Add a vertical line next to the year */
+.vis_net-generation-by-sector {
+    position: relative;
+}
+
+/* Add styles for the year background */
+.year-background {
+    opacity: 0.9;
 }
