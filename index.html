@@ -9,10 +9,20 @@
 <body>
     <div class="content-container">
         <div class="title">
-            <h1>US energy generation rates are at an all time high, yet U.S. carbon emissions are steadily decreasing </h1>
+            <h1>
+                Despite record-breaking energy generation, <br> 
+                U.S. <span class="highlight-nonrenewable">carbon emissions</span> continue to decline
+            </h1>
         </div>
         <div class="vis_net-generation-by-sector"></div> 
         <div class="vis_counter"></div>
+        <div class="more-info">
+            <h2>Click boxes for more information on</h2>
+            <div class="infomation-options">
+                <a class="information-option renewable" data-panel="renewable">Renewable Energy Sources</a>
+                <a class="information-option non-renewable" data-panel="nonrenewable">Non-Renewable Energy Sources</a>
+            </div>
+        </div>
         <div class="sources">
             <h2>Sources</h2>
             <div class="source-links">
@@ -30,6 +40,260 @@
         </div>
         <div class="vis_net-generation-total fixed-size-vis"></div>
         <div class="vis_carbon-emissions fixed-size-vis"></div>
+    </div>
+
+    <div class="info-panel" id="renewable-panel">
+        <div class="info-panel-header">
+            <h3>Renewable Energy Sources</h3>
+            <button class="close-btn">&times;</button>
+        </div>
+        <div class="info-panel-content">
+            <p>Renewable energy sources are naturally replenishing but flow-limited. They are virtually inexhaustible in duration but limited in the amount of energy that is available per unit of time.</p>
+            <p class="impact">Environmental Impact: Positive - These sources have minimal environmental impact and help reduce greenhouse gas emissions.</p>
+            <div class="source-buttons">
+                <button class="source-btn renewable" data-source="solar">Solar</button>
+                <button class="source-btn renewable" data-source="wind">Wind</button>
+                <button class="source-btn renewable" data-source="hydro">Hydroelectric</button>
+                <button class="source-btn renewable" data-source="biomass">Biomass</button>
+                <button class="source-btn renewable" data-source="geothermal">Geothermal</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-panel" id="nonrenewable-panel">
+        <div class="info-panel-header">
+            <h3>Non-Renewable Energy Sources</h3>
+            <button class="close-btn">&times;</button>
+        </div>
+        <div class="info-panel-content">
+            <p>Non-renewable energy sources come from finite resources that will eventually dwindle, becoming too expensive or environmentally damaging to retrieve.</p>
+            <p class="impact">Environmental Impact: Negative - These sources contribute significantly to greenhouse gas emissions and climate change.</p>
+            <div class="source-buttons">
+                <button class="source-btn non-renewable" data-source="coal">Coal</button>
+                <button class="source-btn non-renewable" data-source="natural-gas">Natural Gas</button>
+                <button class="source-btn non-renewable" data-source="nuclear">Nuclear</button>
+                <button class="source-btn non-renewable" data-source="petroleum">Petroleum</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add source info panels -->
+    <div class="source-info-panels">
+        <!-- Solar -->
+        <div class="info-panel source-panel" id="solar-panel">
+            <div class="info-panel-header">
+                <h3>Solar Energy</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="info-panel-content">
+                <p>Solar energy harnesses the sun's power through photovoltaic panels or concentrated solar power systems.</p>
+                <p>How it works:</p>
+                <ul>
+                    <li>Photovoltaic cells convert sunlight directly into electricity</li>
+                    <li>Solar thermal collectors heat water or other fluids</li>
+                    <li>Concentrated solar power uses mirrors to focus sunlight</li>
+                </ul>
+                <p class="impact">Environmental Benefits:</p>
+                <ul>
+                    <li>Zero emissions during operation</li>
+                    <li>No air or water pollution</li>
+                    <li>Minimal maintenance required</li>
+                    <li>Silent operation</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Wind -->
+        <div class="info-panel source-panel" id="wind-panel">
+            <div class="info-panel-header">
+                <h3>Wind Energy</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="info-panel-content">
+                <p>Wind energy converts the kinetic energy of moving air into electricity using wind turbines.</p>
+                <p>How it works:</p>
+                <ul>
+                    <li>Wind turns large turbine blades</li>
+                    <li>Blades drive a generator through a gearbox</li>
+                    <li>Generator converts mechanical energy to electricity</li>
+                </ul>
+                <p class="impact">Environmental Benefits:</p>
+                <ul>
+                    <li>Zero emissions during operation</li>
+                    <li>Small land footprint</li>
+                    <li>Compatible with agricultural use</li>
+                    <li>No water pollution</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Hydroelectric -->
+        <div class="info-panel source-panel" id="hydro-panel">
+            <div class="info-panel-header">
+                <h3>Hydroelectric Power</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="info-panel-content">
+                <p>Hydroelectric power harnesses the energy of falling or flowing water to generate electricity.</p>
+                <p>How it works:</p>
+                <ul>
+                    <li>Water flows through turbines</li>
+                    <li>Turbines drive generators</li>
+                    <li>Can store energy by pumping water uphill</li>
+                </ul>
+                <p class="impact">Environmental Benefits:</p>
+                <ul>
+                    <li>Zero direct emissions</li>
+                    <li>Long facility lifespan</li>
+                    <li>Provides flood control</li>
+                    <li>Creates recreational areas</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Biomass -->
+        <div class="info-panel source-panel" id="biomass-panel">
+            <div class="info-panel-header">
+                <h3>Biomass Energy</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="info-panel-content">
+                <p>Biomass energy comes from burning organic materials like wood, crops, and waste.</p>
+                <p>How it works:</p>
+                <ul>
+                    <li>Organic matter is burned or converted to fuel</li>
+                    <li>Heat drives steam turbines</li>
+                    <li>Can produce liquid biofuels</li>
+                </ul>
+                <p class="impact">Environmental Benefits:</p>
+                <ul>
+                    <li>Carbon neutral when sustainably managed</li>
+                    <li>Reduces waste in landfills</li>
+                    <li>Can use agricultural byproducts</li>
+                    <li>Supports local agriculture</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Geothermal -->
+        <div class="info-panel source-panel" id="geothermal-panel">
+            <div class="info-panel-header">
+                <h3>Geothermal Energy</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="info-panel-content">
+                <p>Geothermal energy taps into the Earth's internal heat for power generation and direct use.</p>
+                <p>How it works:</p>
+                <ul>
+                    <li>Wells access underground heat</li>
+                    <li>Steam drives turbines</li>
+                    <li>Can provide direct heating</li>
+                </ul>
+                <p class="impact">Environmental Benefits:</p>
+                <ul>
+                    <li>Very low emissions</li>
+                    <li>Small land footprint</li>
+                    <li>Constant power output</li>
+                    <li>Long facility lifespan</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Coal -->
+        <div class="info-panel source-panel" id="coal-panel">
+            <div class="info-panel-header">
+                <h3>Coal Power</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="info-panel-content">
+                <p>Coal power burns fossil fuels to generate electricity, but is a major source of pollution.</p>
+                <p>How it works:</p>
+                <ul>
+                    <li>Coal is burned to heat water</li>
+                    <li>Steam drives turbines</li>
+                    <li>Requires constant fuel input</li>
+                </ul>
+                <p class="impact">Environmental Concerns:</p>
+                <ul>
+                    <li>Major source of CO2 emissions</li>
+                    <li>Air and water pollution</li>
+                    <li>Mining damages landscapes</li>
+                    <li>Ash disposal issues</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Natural Gas -->
+        <div class="info-panel source-panel" id="natural-gas-panel">
+            <div class="info-panel-header">
+                <h3>Natural Gas</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="info-panel-content">
+                <p>Natural gas is cleaner than coal but still contributes to climate change.</p>
+                <p>How it works:</p>
+                <ul>
+                    <li>Gas is burned in turbines</li>
+                    <li>Combined cycle increases efficiency</li>
+                    <li>Requires pipeline infrastructure</li>
+                </ul>
+                <p class="impact">Environmental Concerns:</p>
+                <ul>
+                    <li>Significant CO2 emissions</li>
+                    <li>Methane leakage</li>
+                    <li>Fracking environmental impacts</li>
+                    <li>Pipeline risks</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Nuclear -->
+        <div class="info-panel source-panel" id="nuclear-panel">
+            <div class="info-panel-header">
+                <h3>Nuclear Power</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="info-panel-content">
+                <p>Nuclear power uses fission to generate heat for electricity, with no direct CO2 emissions but other environmental concerns.</p>
+                <p>How it works:</p>
+                <ul>
+                    <li>Nuclear fission generates heat</li>
+                    <li>Steam drives turbines</li>
+                    <li>Requires careful safety measures</li>
+                </ul>
+                <p class="impact">Environmental Concerns:</p>
+                <ul>
+                    <li>Radioactive waste storage</li>
+                    <li>Water usage for cooling</li>
+                    <li>Mining uranium impacts</li>
+                    <li>Risk of accidents</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Petroleum -->
+        <div class="info-panel source-panel" id="petroleum-panel">
+            <div class="info-panel-header">
+                <h3>Petroleum Power</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="info-panel-content">
+                <p>Petroleum-based power plants burn oil products to generate electricity, contributing to pollution and climate change.</p>
+                <p>How it works:</p>
+                <ul>
+                    <li>Oil is burned to create steam</li>
+                    <li>Steam drives turbines</li>
+                    <li>Requires constant fuel supply</li>
+                </ul>
+                <p class="impact">Environmental Concerns:</p>
+                <ul>
+                    <li>High CO2 emissions</li>
+                    <li>Air pollution</li>
+                    <li>Oil spill risks</li>
+                    <li>Resource depletion</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <script src="main.js"></script>

@@ -8,8 +8,18 @@ html{
     margin: 0;
     padding: 0;
     box-sizing: inherit;
+    caret-color: transparent;
 }
- 
+
+
+
+h2{
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    /* letter-spacing: 0.05em;
+    font-weight: 600;
+    opacity: 1; */
+}
 body{
     height: 100vh;
     padding: 1rem;
@@ -28,7 +38,59 @@ body{
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(6, 1fr);
 }
-
+.more-info{
+    grid-column: 9 / 13;
+    grid-row: 2 / 3;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 1rem;
+    text-align: center;
+    gap: 0.5rem;
+    padding-left: 0.5rem;
+}
+.information-options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    
+}
+.information-option{
+    font-size: 0.75rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(246, 240, 237, 0.4);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    background: rgba(246, 240, 237, 0.05);
+    text-decoration: none;
+    color: rgba(246, 240, 237, 0.8);
+    display: inline-block;
+    user-select: none;
+}
+.information-option:hover {
+    border-color: rgba(246, 240, 237, 0.8);
+    background: rgba(246, 240, 237, 0.1);
+    transform: translateY(-1px);
+    color: rgba(246, 240, 237, 1);
+    text-decoration: none;
+}
+.information-option.renewable {
+    border-color: rgba(0, 100, 0, 0.4);
+}
+.information-option.renewable:hover {
+    border-color: rgba(0, 100, 0, 0.8);
+}
+.information-option.non-renewable {
+    border-color: rgba(139, 0, 0, 0.4);
+}
+.information-option.non-renewable:hover {
+    border-color: rgba(139, 0, 0, 0.8);
+}
 .vis_net-generation-by-sector{
     grid-column: 1 / 9;
     grid-row: 2 / 7;
@@ -38,10 +100,34 @@ body{
 .title{
     grid-column: 1 / 9;
     grid-row: 1 / 2;
+
+    padding: 0 1rem;
 }
+.title h1 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+    font-weight: 600;
+    color: rgba(246, 240, 237, 0.8);
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+/* Add highlight colors for key terms */
+.title .highlight-renewable {
+    color: #4CAF50;  /* Green for renewable */
+
+    font-weight: 700;
+}
+
+.title .highlight-nonrenewable {
+    color: #FF5252;  /* Red for non-renewable/carbon */
+    opacity: 0.8;
+    font-weight: 700;
+}
+
 .sources{
     grid-column: 9 / 13;
-    grid-row: 1 / 3;
+    grid-row: 1 / 2;
     padding: 1rem;
     text-align: center;
     
@@ -72,17 +158,6 @@ body{
 .source-links a:hover {
     color: rgba(246, 240, 237, 1);
     text-decoration: underline;
-}
-.vis_counter{
-    grid-column: 1 / 2;
-    grid-row: 2 / 7;
-    position: relative;
-    z-index: 2;
-    pointer-events: none;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding-top: 40px;
 }
 .vis_net-generation-total{
     grid-column: 9 / 13;
@@ -318,14 +393,29 @@ html {
 
 .info-panel {
     position: absolute;
+    display: none;
     background: #363738;
     border: 1px solid #4A4B4E;
     border-radius: 8px;
-    padding: 0;
     width: 300px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     z-index: 1000;
     color: rgba(246, 240, 237, 0.9);
+    resize: both;
+    overflow: auto;
+    min-width: 250px;
+    min-height: 200px;
+    transition: opacity 0.2s ease;
+}
+
+.info-panel.active {
+    display: block;
+    opacity: 0.7;
+}
+
+.info-panel.focused {
+    opacity: 1;
+    z-index: 1001;
 }
 
 .info-panel-header {
@@ -336,6 +426,7 @@ html {
     background: #2A2B2E;
     border-radius: 8px 8px 0 0;
     border-bottom: 1px solid #4A4B4E;
+    cursor: move;
 }
 
 .info-panel-header h3 {
@@ -360,10 +451,18 @@ html {
 
 .info-panel-content {
     padding: 16px;
+    max-height: calc(80vh - 48px);
+    overflow-y: auto;
 }
 
 .info-panel-content p {
     margin: 0 0 12px 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.info-panel-content ul {
+    margin: 0 0 12px 20px;
     font-size: 0.9rem;
     line-height: 1.4;
 }
@@ -373,6 +472,46 @@ html {
     padding-top: 12px;
     border-top: 1px solid #4A4B4E;
     font-weight: 500;
+}
+
+.source-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.source-btn {
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid rgba(246, 240, 237, 0.4);
+    background: rgba(246, 240, 237, 0.05);
+    color: rgba(246, 240, 237, 0.8);
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+}
+
+.source-btn:hover {
+    border-color: rgba(246, 240, 237, 0.8);
+    background: rgba(246, 240, 237, 0.1);
+    transform: translateY(-1px);
+}
+
+.source-btn.renewable {
+    border-color: rgba(0, 100, 0, 0.4);
+}
+
+.source-btn.renewable:hover {
+    border-color: rgba(0, 100, 0, 0.8);
+}
+
+.source-btn.non-renewable {
+    border-color: rgba(139, 0, 0, 0.4);
+}
+
+.source-btn.non-renewable:hover {
+    border-color: rgba(139, 0, 0, 0.8);
 }
 
 /* Make bars clickable */

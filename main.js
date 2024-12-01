@@ -3,6 +3,164 @@ const script = document.createElement('script');
 script.src = "./d3.v7.min.js";
 document.head.appendChild(script);
 
+// Add this at the top level of the file, outside any functions
+let currentHighlightState = {
+    active: false,
+    sourceId: null
+};
+
+// Panel management - Move outside the script.onload
+function initializePanels() {
+    let focusedPanel = null;
+    let isDragging = false;
+    let currentX;
+    let currentY;
+    let initialX;
+    let initialY;
+    let xOffset = 0;
+    let yOffset = 0;
+
+    // Panel positioning
+    function setTranslate(xPos, yOffset, el) {
+        el.style.transform = `translate(${xPos}px, ${yOffset}px)`;
+    }
+
+    function dragStart(e) {
+        const panel = e.target.closest('.info-panel');
+        if (e.target.classList.contains('info-panel-header') && panel) {
+            focusPanel(panel);
+            
+            const transform = window.getComputedStyle(panel).transform;
+            const matrix = new DOMMatrix(transform);
+            xOffset = matrix.m41;
+            yOffset = matrix.m42;
+            
+            initialX = e.clientX - xOffset;
+            initialY = e.clientY - yOffset;
+            
+            isDragging = true;
+        }
+    }
+
+    function drag(e) {
+        if (isDragging && focusedPanel) {
+            e.preventDefault();
+            currentX = e.clientX - initialX;
+            currentY = e.clientY - initialY;
+            xOffset = currentX;
+            yOffset = currentY;
+            setTranslate(currentX, currentY, focusedPanel);
+        }
+    }
+
+    function dragEnd(e) {
+        initialX = currentX;
+        initialY = currentY;
+        isDragging = false;
+    }
+
+    // Focus panel function
+    function focusPanel(panel) {
+        // Remove focus from all panels
+        document.querySelectorAll('.info-panel').forEach(p => {
+            p.classList.remove('focused');
+        });
+        
+        // Add focus to clicked panel
+        panel.classList.add('focused');
+        focusedPanel = panel;
+        
+        // Update highlight state
+        const sourceId = panel.id.replace('-panel', '');
+        currentHighlightState.active = true;
+        currentHighlightState.sourceId = sourceId;
+        
+        applyHighlighting();
+    }
+
+    // Open panel function
+    function openPanel(panelId, x = 100, y = 100) {
+        const panel = document.getElementById(panelId);
+        
+        // If panel is already open, just focus it
+        if (panel.classList.contains('active')) {
+            focusPanel(panel);
+            return;
+        }
+        
+        // Calculate offset for cascading effect
+        const activeCount = document.querySelectorAll('.info-panel.active').length;
+        const offsetX = x + (activeCount * 20);
+        const offsetY = y + (activeCount * 20);
+        
+        // Open and position the new panel
+        panel.classList.add('active');
+        panel.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+        
+        // Focus the new panel
+        focusPanel(panel);
+    }
+
+    // Event Listeners
+    document.addEventListener('mousedown', dragStart);
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('mouseup', dragEnd);
+
+    // Close button functionality
+    document.querySelectorAll('.close-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const panel = btn.closest('.info-panel');
+            panel.classList.remove('active', 'focused');
+            if (focusedPanel === panel) {
+                focusedPanel = null;
+                // Reset highlight state
+                currentHighlightState.active = false;
+                currentHighlightState.sourceId = null;
+                // Reset all bars to default opacity
+                d3.selectAll('rect').style('opacity', 0.7);
+            }
+        });
+    });
+
+    // Panel focus on click
+    document.querySelectorAll('.info-panel').forEach(panel => {
+        panel.addEventListener('mousedown', (e) => {
+            if (!e.target.classList.contains('close-btn')) {
+                focusPanel(panel);
+            }
+        });
+    });
+
+    // Main category buttons
+    document.querySelectorAll('.information-option').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const panelId = `${e.target.dataset.panel}-panel`;
+            openPanel(panelId);
+        });
+    });
+
+    // Source buttons
+    document.querySelectorAll('.source-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const sourceId = `${e.target.dataset.source}-panel`;
+            openPanel(sourceId, 150, 150);
+        });
+    });
+
+    // Add mouseleave event to reset when no panels are focused
+    document.addEventListener('mouseleave', () => {
+        if (!document.querySelector('.info-panel.focused')) {
+            currentHighlightState.active = false;
+            currentHighlightState.sourceId = null;
+            d3.selectAll('rect').style('opacity', 0.7);
+        }
+    });
+}
+
+// Initialize panels after DOM is loaded
+document.addEventListener('DOMContentLoaded', initializePanels);
+
+// D3.js visualization code
 script.onload = function() {
     // Adjusted margins to prevent overlap
     const margin = {top: 20, right: 120, bottom: 20, left: 250};
@@ -203,7 +361,8 @@ script.onload = function() {
                 .attr('x', totalGenWidth / 2)
                 .attr('y', -totalGenMargin.top / 2)
                 .attr('text-anchor', 'middle')
-                .style('font-size', '14px')
+                .style('font-size', '0.75rem')
+                .style('text-transform', 'uppercase')
                 .style('font-weight', 'bold')
                 .style('fill', 'rgba(246, 240, 237, 0.8)')
                 .text('US Energy Generated From 2001 to 2022');
@@ -264,7 +423,7 @@ script.onload = function() {
                 .selectAll('line')
                 .style('stroke', '#F6F0ED');
 
-            // Add axes with more prominent ticks
+            // Add axes
             carbonSvg.append('g')
                 .attr('transform', `translate(0,${carbonHeight})`)
                 .call(xAxis)
@@ -278,14 +437,18 @@ script.onload = function() {
                 .style('stroke', 'rgba(246, 240, 237, 0.8)')
                 .style('fill', 'rgba(246, 240, 237, 0.8)');
 
-            // Add area
+            // Create area and line generators
             const area = d3.area()
                 .x(d => carbonXScale(d.Year))
-                .y0(carbonHeight) // Bottom of the chart
+                .y0(carbonHeight)
                 .y1(d => yScale(d.value));
 
+            const line = d3.line()  // Define the line generator
+                .x(d => carbonXScale(d.Year))
+                .y(d => yScale(d.value));
+
             // Add gradient definition
-            const gradient = carbonSvg.append("defs")
+            const carbonGradient = carbonSvg.append("defs")
                 .append("linearGradient")
                 .attr("id", "carbon-area-gradient")
                 .attr("x1", "0%")
@@ -293,12 +456,12 @@ script.onload = function() {
                 .attr("x2", "0%")
                 .attr("y2", "100%");
 
-            gradient.append("stop")
+            carbonGradient.append("stop")
                 .attr("offset", "0%")
-                .attr("stop-color", "#8B0000") // Dark red matching non-renewable
+                .attr("stop-color", "#8B0000")
                 .attr("stop-opacity", 0.8);
 
-            gradient.append("stop")
+            carbonGradient.append("stop")
                 .attr("offset", "100%")
                 .attr("stop-color", "#8B0000")
                 .attr("stop-opacity", 0.1);
@@ -309,19 +472,15 @@ script.onload = function() {
                 .attr('fill', 'url(#carbon-area-gradient)')
                 .attr('d', area);
 
-            // Add the line on top
-            const line = d3.line()
-                .x(d => carbonXScale(d.Year))
-                .y(d => yScale(d.value));
-
+            // Add the line
             carbonSvg.append('path')
                 .datum(data)
                 .attr('fill', 'none')
-                .attr('stroke', '#8B0000') // Dark red matching non-renewable
+                .attr('stroke', '#8B0000')
                 .attr('stroke-width', 1.5)
-                .attr('d', line);
+                .attr('d', line);  // Now line is defined
 
-            // Add title
+            // Add title and labels
             carbonSvg.append('text')
                 .attr('x', carbonWidth / 2)
                 .attr('y', -carbonMargin.top / 2)
@@ -331,7 +490,6 @@ script.onload = function() {
                 .style('fill', 'rgba(246, 240, 237, 0.8)')
                 .text('US Carbon Emissions From 2001 to 2022');
 
-            // Add y-axis label
             carbonSvg.append('text')
                 .attr('transform', 'rotate(-90)')
                 .attr('y', -carbonMargin.left + 15)
@@ -564,6 +722,9 @@ script.onload = function() {
                 .ease(d3.easeQuadInOut)
                 .style('opacity', 0)
                 .remove();
+
+            // After updating/creating bars, reapply highlighting
+            applyHighlighting();
         }
 
         // Create a separate div for the year scroll
@@ -743,24 +904,6 @@ script.onload = function() {
                 
                 const totalGenValue = totalGenEntry ? +totalGenEntry['Amount Generated (thousand megawatthours)'] : 0;
                 const carbonValue = carbonEntry ? +carbonEntry['tonnes of carbon dioxide-equivalents'] : 0;
-
-                // Update counter display
-                const counterContainer = d3.select('.vis_counter');
-                
-                // Create counter content if it doesn't exist
-                const counterContent = counterContainer.selectAll('.counter-content')
-                    .data([1])
-                    .join('div')
-                    .attr('class', 'counter-content')
-                    .style('color', 'rgba(246, 240, 237, 0.8)')
-                    .style('padding', '10px')
-                    .style('text-align', 'center');
-
-                counterContent.html(`
-                    <div style="font-size: 1.2em; margin-bottom: 5px;">Year: ${year}</div>
-                    <div style="margin-bottom: 5px;">Total Generation: ${d3.format('.3s')(totalGenValue)} MWh</div>
-                    <div>Carbon Emissions: ${d3.format('.3s')(carbonValue)} tonnes CO₂</div>
-                `);
             }
 
             // Update line indicators if scales are available
@@ -797,3 +940,45 @@ script.onload = function() {
         let totalGenData, carbonData;
     });
 };
+
+// Add new function to apply highlighting
+function applyHighlighting() {
+    if (!currentHighlightState.active) {
+        d3.selectAll('rect').style('opacity', 0.7);
+        return;
+    }
+
+    const sourceId = currentHighlightState.sourceId;
+    
+    if (sourceId === 'renewable') {
+        d3.selectAll('rect').style('opacity', d => {
+            const isRenewable = ['Solar', 'Wind', 'Conventional Hydroelectric', 'Biomass', 'Geothermal', 'Other Renewables', 'Total Renewable']
+                .includes(d.source);
+            return isRenewable ? 1 : 0.3;
+        });
+    } else if (sourceId === 'nonrenewable') {
+        d3.selectAll('rect').style('opacity', d => {
+            const isNonRenewable = ['Coal', 'Natural Gas', 'Nuclear', 'Petroleum Liquid', 'Other Gases', 'Total Non-Renewable']
+                .includes(d.source);
+            return isNonRenewable ? 1 : 0.3;
+        });
+    } else {
+        d3.selectAll('rect').style('opacity', d => {
+            const sourceName = {
+                'solar': 'Solar',
+                'wind': 'Wind',
+                'hydro': 'Conventional Hydroelectric',
+                'biomass': 'Biomass',
+                'geothermal': 'Geothermal',
+                'coal': 'Coal',
+                'natural-gas': 'Natural Gas',
+                'nuclear': 'Nuclear',
+                'petroleum': ['Petroleum Liquid', 'Petroleum Coke']
+            }[sourceId];
+            if (Array.isArray(sourceName)) {
+                return sourceName.includes(d.source) ? 1 : 0.3;
+            }
+            return d.source === sourceName ? 1 : 0.3;
+        });
+    }
+}
