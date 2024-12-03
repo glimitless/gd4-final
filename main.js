@@ -485,9 +485,10 @@ script.onload = function() {
                 .attr('x', carbonWidth / 2)
                 .attr('y', -carbonMargin.top / 2)
                 .attr('text-anchor', 'middle')
-                .style('font-size', '14px')
+                .style('font-size', '0.75rem')
                 .style('font-weight', 'bold')
                 .style('fill', 'rgba(246, 240, 237, 0.8)')
+                .style('text-transform', 'uppercase')
                 .text('US Carbon Emissions From 2001 to 2022');
 
             carbonSvg.append('text')
@@ -612,7 +613,7 @@ script.onload = function() {
             // Fixed height calculations
             const availableHeight = chartHeight - margin.top - margin.bottom;
             const maxBars = 12; // Adjust based on typical number of visible bars
-            const barHeight = Math.floor((availableHeight - margin.top - margin.bottom) / maxBars);
+            const barHeight = 40;
             
             // Update y scale with fixed range
             y.range([0, availableHeight - margin.top - margin.bottom])
