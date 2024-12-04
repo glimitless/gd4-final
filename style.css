@@ -103,14 +103,6 @@ body{
 
     padding: 0 1rem;
 }
-.title h1 {
-    font-size: 1.7rem;
-    line-height: 1.3;
-    font-weight: 600;
-    color: rgba(246, 240, 237, 0.8);
-    letter-spacing: -0.02em;
-    margin: 0;
-}
 
 /* Add highlight colors for key terms */
 .title .highlight-renewable {
@@ -162,10 +154,14 @@ body{
 .vis_net-generation-total{
     grid-column: 9 / 13;
     grid-row: 3 / 5;
+    min-height: 230px;
+    height: 100%;
 }
 .vis_carbon-emissions{
     grid-column: 9 / 13;
     grid-row: 5 / 7;
+    min-height: 230px;
+    height: 100%;
 }
 
 .sticky-header {
@@ -176,9 +172,18 @@ body{
 .fixed-size-vis {
     width: 100%;
     height: 230px;
+    min-height: 230px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+}
+
+.fixed-size-vis svg {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 14.375rem;
 }
 
 .counter-content {
@@ -540,4 +545,93 @@ rect {
 /* Add styles for the year background */
 .year-background {
     opacity: 0.9;
+}
+
+/* Add these styles to your existing CSS */
+.year-indicator-container {
+    z-index: 1000;
+}
+
+.year-handle {
+    transition: top 0.3s ease;
+}
+
+.year-handle:hover {
+    background: rgba(246, 240, 237, 0.2);
+    border-color: rgba(246, 240, 237, 0.6);
+}
+
+.year-text {
+    user-select: none;
+}
+
+/* Add these styles to handle scrolling */
+.vis_net-generation-by-sector {
+    position: relative;
+    overflow: hidden;
+}
+
+.vis_net-generation-by-sector::-webkit-scrollbar {
+    display: none;
+}
+
+.vis_net-generation-by-sector {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Style for the year indicator */
+.year-indicator {
+    position: absolute;
+    left: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(246, 240, 237, 0.8);
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Update the fixed-size-vis class */
+.fixed-size-vis {
+    width: 100%;
+    height: 14.375rem;
+    min-height: 14.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+}
+
+/* Update the right-side visualization containers */
+.vis_net-generation-total,
+.vis_carbon-emissions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 14.375rem;
+    height: 100%;
+    width: 100%;
+}
+
+/* Center the SVG elements inside the containers */
+.vis_net-generation-total svg,
+.vis_carbon-emissions svg {
+    display: block;
+    margin: 0 auto;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 230px;
+    max-width: 420px;
+}
+
+/* Update grid positioning */
+.vis_net-generation-total {
+    grid-column: 9 / 13;
+    grid-row: 3 / 5;
+}
+
+.vis_carbon-emissions {
+    grid-column: 9 / 13;
+    grid-row: 5 / 7;
 }

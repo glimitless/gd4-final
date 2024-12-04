@@ -774,7 +774,8 @@ script.onload = function() {
                 Math.floor(scrollProgress * years.length)
             );
             
-            const currentYear = years[yearIndex];
+            // Reverse the year index to scroll from 2001 to 2022
+            const currentYear = years[years.length - 1 - yearIndex];
             if (currentYear !== lastScrollTop) {
                 updateVisualization(currentYear);
                 updateYearIndicators(currentYear);
